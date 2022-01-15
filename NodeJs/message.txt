@@ -1,1 +1,1 @@
-DUMMY_DATAfunction Date() { [native code] }
+Hi+again%21
