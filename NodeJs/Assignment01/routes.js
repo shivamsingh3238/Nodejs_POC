@@ -30,14 +30,22 @@ const requestHandler = (req, res) => {
     return res.end();
   }
   if (url === "/create-user" && req.method === "POST") {
-    const body = [];
+    const bodyData = [];
     req.on("data", (chunk) => {
-      body.push(chunk);
+      //console.log(chunk);
+      bodyData.push(chunk);
     });
+
     return req.on("end", () => {
-      var parsedBody = Buffer.concat(body).toString();
-      var newUsername = parsedBody.split("=")[1];
-      console.log("New username is: ", newUsername);
+      const parsedata = Buffer.concat(bodyData).toString();
+      //console.log(parsedata);
+      const message = parsedata.split("=")[1];
+      console.log(message);
+      fs.writeFile("message.txt", message, (err) => {
+        req.statusCode = 404;
+      });
+      req.statusCode = 302;
+      res.setHeader("Location", "/");
     });
   }
 };
