@@ -1,0 +1,14 @@
+extends layout/main-layout.pug
+
+block style
+    <link rel="stylesheet" href="/css/shop.css">
+block content
+    main
+            if item.length > 0
+                each product in item 
+                    li.main-h1-tag #{product .title}
+            else
+              h1.main-h1-tag No products
+
+        
+            
