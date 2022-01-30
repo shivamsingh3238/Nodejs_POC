@@ -5,8 +5,13 @@ const adminRoute = require("./route/admin");
 const userRoute = require("./route/user");
 
 const BodyParser = require("body-parser");
+const { join } = require("path");
 
 const app = express();
+
+//startic path for css file & you can create multiple static path
+app.use(express.static(path.join(__dirname, "public")));
+//app.use(express.static(path.join(__dirname, "test")));
 
 app.use(BodyParser.urlencoded({ extended: false }));
 

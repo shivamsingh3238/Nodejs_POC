@@ -17,7 +17,7 @@ route.post("/test", (req, res, next) => {
 });
 
 route.use("/", (req, res, next) => {
-  res.send("<h1>This is admin universal route</h1>");
+  res.redirect("/");
 });
 
 module.exports = route;
