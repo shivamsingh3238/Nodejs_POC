@@ -10,6 +10,8 @@ route.get("/item", procuctController.getAddProduct);
 
 route.post("/test", procuctController.postAddProduct);
 
+route.post("/DeleteProduct", procuctController.postDeleteProduct);
+route.post("/EditProduct", procuctController.postEditProduct);
 module.exports = {
   routes: route
 };

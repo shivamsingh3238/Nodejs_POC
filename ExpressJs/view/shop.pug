@@ -6,9 +6,14 @@ block content
     main
             if item.length > 0
                 each product in item 
-                    li.main-h1-tag #{product .title}
+                    .content-bar
+                        li.main-h1-tag #{product.title}
+                        form.product-form(action="/admin/EditProduct", method="POST")
+                            button.content-bar-button(type="submit") Edit Product
+                        form.product-form(action="/admin/DeleteProduct", method="POST")
+                            button.content-bar-button(type="submit") Delete Product
+                        form.product-form(action=`/ShowProduct/${product.id}`, method="POST")
+                            button.content-bar-button(type="submit") Show Product
             else
               h1.main-h1-tag No products
 
-        
-            
